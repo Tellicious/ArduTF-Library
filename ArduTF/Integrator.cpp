@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------------/
   Arduino Integrator Library
-  by Andrea Vivani <andrea.vivani@gmail.com> 
+  by Andrea Vivani <tellicious@icloud.com> 
   This Library is licensed under GPLv3 License
 /-----------------------------------------------------------------------------------*/
 
@@ -17,11 +17,12 @@
 INT::INT(double* Output,uint32_t T){
 	_Output=Output;
 	_T=T;
-	double T_sec=(double) T/1e6;
+	double T_sec=(double) T/1e3;
 	_ki=0.5*T_sec;
 	//set to 0 all the support variables
 	_u_old=0;
 	_Int=0;
+	_lastTime=millis();
 }
 
 
@@ -34,7 +35,7 @@ elapsed since the last step is greater or equal than the step time
 {
 	_Int+=_ki*(u+_u_old);
 	_u_old=u;
-    *_Output=_Int;
+    	*_Output=_Int;
 }
 
 /*-----------------------------AutoCalculate Output----------------------------//
@@ -44,11 +45,11 @@ if it returns false, the program will stop, otherwise it can continue
  //---------------------------------------------------------------------------------*/
 bool INT::AutoCompute(double u)
 {
-	uint32_t now = micros();
+	uint32_t now = millis();
    if((now-_lastTime)>=_T){
    		_lastTime=now;
 		INT::Compute(u);
-    	if ((micros()-_lastTime)>=_T){
+    	if ((millis()-_lastTime)>=_T){
     		*_Output=0;
     		return false;
     	}

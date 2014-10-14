@@ -5,7 +5,7 @@
 class DIFF
 {	
 		public:
-		DIFF(double*,double,uint32_t);  //constructor: the three parameters are the output variable, the filtering constant N: DIFF(s)=s/(1+s/N) and the loop time in micros
+		DIFF(double*,double,uint32_t);  //constructor: the three parameters are the output variable, the filtering constant N: DIFF(s)=s/(1+s/N) and the loop time in milliseconds
 		void Compute(double);  //calculates the numerical derivative of input
 		bool AutoCompute(double); //calculates the numerical derivative of input automatically considering the respect of the loop time
 		

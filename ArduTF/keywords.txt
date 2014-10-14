@@ -1,5 +1,5 @@
 #######################################
-##### Syntax Coloring Map For ArduPID #####
+##### Syntax Coloring Map For ArduTF #####
 #######################################
 
 #######################################
@@ -16,7 +16,7 @@ FILT	KEYWORD1
 
 AutoCompute	KEYWORD2
 Compute	KEYWORD2
-SetStartingValue KEYWORD2
+SetStartingValue	KEYWORD2
 
 #######################################
 ########## Constants (LITERAL1) ##########
