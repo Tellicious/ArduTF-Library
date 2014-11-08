@@ -9,6 +9,7 @@ class FILT
 		void Compute(double);  //calculates the numerical integral of input
 		bool AutoCompute(double); //calculates the numerical integral of input automatically considering the respect of the loop time
 		void SetStartingValue(double); //sets the starting value of the filter
+		void Reset(); //Resets the filter to initial values
 		
 		private:
 		double *_Output;
@@ -16,5 +17,6 @@ class FILT
 		double _d2,_d3,_n1,_n2,_n3;		//store the coefficients of the discrete filter
 		uint32_t _T;
 		uint32_t _lastTime;
+		double _start;				//stores the starting value
 };
 #endif

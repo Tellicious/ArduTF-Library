@@ -20,6 +20,7 @@ INT::INT(double* Output,uint32_t T){
 	double T_sec=(double) T/1e3;
 	_ki=0.5*T_sec;
 	//set to 0 all the support variables
+	_start=0;
 	_u_old=0;
 	_Int=0;
 	_lastTime=millis();
@@ -63,7 +64,17 @@ This function should be called BEFORE the first computation if it is
 required to have a starting value different from zero
  //---------------------------------------------------------------------------------*/
 void INT::SetStartingValue(double start)
-{
+{	
+	_start=start;
 	_Int=start;
+	return;
+}
+/*------------------------------------Reset----------------------------------//
+This function can be called to reset to starting values
+ //---------------------------------------------------------------------------------*/
+void INT::Reset()
+{
+	_Int=_start;
+	_u_old=0;
 	return;
 }

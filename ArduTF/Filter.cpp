@@ -30,6 +30,7 @@ FILT::FILT(double* Output,double n1,double n2,double n3,double d1,double d2,doub
 	_f_old=0;
 	_f_old_2=0;
 	_Filt=0;
+	_start=0;
 	_lastTime=millis();
 	}
 
@@ -74,8 +75,20 @@ This function should be called BEFORE the first computation if it is
 required to have a starting value different from zero
  //---------------------------------------------------------------------------------*/
 void FILT::SetStartingValue(double start)
-{
+{	
+	_start=start;
 	_f_old_2=start;
 	_f_old=start;
+	return;
+}
+/*------------------------------------Reset----------------------------------//
+This function can be called to reset to starting values
+ //---------------------------------------------------------------------------------*/
+void FILT::Reset()
+{
+	_f_old_2=_start;
+	_f_old=_start;
+	_u_old=0;
+	_u_old_2=0;
 	return;
 }

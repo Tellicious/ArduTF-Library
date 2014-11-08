@@ -17,6 +17,7 @@ FILT	KEYWORD1
 AutoCompute	KEYWORD2
 Compute	KEYWORD2
 SetStartingValue	KEYWORD2
+Reset	KEYWORD2
 
 #######################################
 ########## Constants (LITERAL1) ##########

@@ -9,10 +9,11 @@ class INT
 		void Compute(double);  //calculates the numerical integral of input
 		bool AutoCompute(double); //calculates the numerical integral of input automatically considering the respect of the loop time
 		void SetStartingValue(double); //sets the starting value of the integrator
+		void Reset(); //Resets the integrator to initial values
 		
 		private:
 		double *_Output;
-		double _Int,_ki,_u_old;
+		double _Int,_ki,_u_old,_start;
 		uint32_t _T;
 		uint32_t _lastTime;
 };
