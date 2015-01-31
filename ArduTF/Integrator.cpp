@@ -17,7 +17,7 @@
 INT::INT(double* Output,uint32_t T){
 	_Output=Output;
 	_T=T;
-	double T_sec=(double) T/1e3;
+	double T_sec=(double) T*1e-3;
 	_ki=0.5*T_sec;
 	//set to 0 all the support variables
 	_start=0;
